@@ -72,7 +72,7 @@ class LoginController extends Controller
                 Alert::success('Selamat Anda Berhasil Login!','Successfully');
                 return redirect()->intended('admin/dashboard');
         }
-        elseif(Auth::attempt([$this->field() =>request()->username, 'password' =>request()->password]) && Auth::user()->role == 2 && Auth::user()->username == "driver")
+        elseif(Auth::attempt([$this->field() =>request()->username, 'password' =>request()->password]) && Auth::user()->role == 2 && Auth::user()->username == "pengemudi")
         {
                 Alert::success('Selamat Anda Berhasil Login!','Successfully');
                 return redirect()->intended('admin/jadwal_driver');

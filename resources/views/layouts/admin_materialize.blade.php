@@ -44,7 +44,7 @@
 
       <div class="divider"></div>
       @endif
-      @if (Auth::user()->username == "driver")
+      @if (Auth::user()->username == "pengemudi")
         <li><a href="{{url('admin/jadwal_driver')}}"><i class="fa fa-id-card" aria-hidden="true"></i> Daftar Driver</a></li>
         <div class="divider"></div>
       @endif
