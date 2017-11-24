@@ -30,6 +30,8 @@ Route::group(['middleware' => 'admin'], function(){
 	Route::get('/admin/edit_paket_harga/{id}', 'PaketController@editHargaPaket');
 	Route::post('/admin/edit_paket_harga/{id}', 'PaketController@updateHargaPaket');
 	Route::get('/admin/dashboard', 'AdminController@dashboard');
+	Route::get('/admin/jadwal_driver', 'AdminController@driver');
+
 	//Route::get('/admin/dashboard', 'AdminController@chart');
 
 

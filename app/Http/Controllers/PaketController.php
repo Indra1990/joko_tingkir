@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Tour;
+use App\Driver;
 use DateTime;
 use App\Booking;
 use App\Http\Requests;
@@ -84,7 +85,8 @@ class PaketController extends Controller
     {
 
         $tour = Tour::findOrFail($id);
-        return view('admin/edit_paket_harga', compact('tour'));
+        //$drivers = Driver::all();
+        return view('admin/edit_paket_harga', compact('tour','drivers'));
     }
 
     public function updateHargaPaket(Request $request, $id)

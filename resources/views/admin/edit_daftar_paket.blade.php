@@ -3,7 +3,7 @@
 @section('content_materialize_admin')
 <div class="container">
 	<div class="row">
-		<div class="col s8 offset-s2">
+		<div class="col s10 offset-s2">
 			<div class="card-panel">
 				<div class="section">
 					<h4 class="center-align red-text  text-red lighten-2">Edit Daftar Paket</h4>
@@ -23,7 +23,7 @@
 						<label>Status</label>
 					</div>
 
-					<div class="input-field col s8 {{ $errors->has('tanggal_liburan') ? ' has-error' : '' }}">						
+					<div class="input-field col s8 {{ $errors->has('tanggal_liburan') ? ' has-error' : '' }}">
 						 <input type="text" name="tanggal_liburan" class="datepicker" value="{{ date('Y-m-d', strtotime($bookings->tanggal_liburan)) }}">
 						 <label>Tanggal Liburan</label>
 						 @if ($errors->has('tanggal_liburan'))
@@ -31,7 +31,7 @@
 			                     <strong>{{ $errors->first('tanggal_liburan') }}</strong>
 			                </span>
 			            @endif
-					</div>	
+					</div>
 
 					@foreach ($bookings->tours as $oldtour)
 					<div class="input-field col s8">
@@ -43,7 +43,21 @@
 						</select>
 					</div>
 					@endforeach
-					
+
+				<div class="input-field col s8">
+					<div class="card-panel">
+						<p class="blue-text text-darken-2">Add Driver</p>
+						<div class="divider"></div>
+						 <span class="blue-text text-darken-2">
+							 <p>
+							 <input type="checkbox" id="test5" />
+				       <label for="test5">Red</label>
+							 </p>
+						 </span>
+					 </div>
+
+			 </div>
+
 					<div class="input-field col s8">
 					<button class="waves-effect waves-light btn">submit</button>
 					</div>

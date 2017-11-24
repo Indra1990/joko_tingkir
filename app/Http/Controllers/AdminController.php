@@ -10,6 +10,7 @@ use App\Booking;
 use App\Payment;
 use Carbon\Carbon;
 use Landish\Pagination;
+use App\Driver;
 use Lava;
 use Khill\Lavacharts\Lavacharts;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +22,11 @@ class AdminController extends Controller
 	{
 		return view('admin.index');
 	}
-
+	public function driver()
+	{
+		$drivers = Driver::all();
+		return view('admin.jadwal_driver' ,compact('drivers'));
+	}
 
 	public function dashboard()
 	{
