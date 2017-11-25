@@ -24,7 +24,7 @@ class UserTableSeeder extends Seeder
         	],
         	[
         		'name' 		=> 'joko',
-                'username'     => 'joko',
+            'username' => 'joko',
         		'email'		=> 'paketwisatakidul@gmail.com',
         		'role'		=> '1',
         		'password' 	=> bcrypt('123456'),
@@ -33,7 +33,7 @@ class UserTableSeeder extends Seeder
         	],
         	[
         		'name' 		=> 'joe',
-                'username'     => 'joe',
+            'username' => 'joe',
         		'email'		=> 'joe@gmail.com',
         		'role'		=> '1',
         		'password' 	=> bcrypt('123456'),

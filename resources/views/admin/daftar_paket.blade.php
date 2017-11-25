@@ -8,7 +8,7 @@
 </style>
 <div class="container">
 	<div class="row">
-		<div class="col s10 offset-s2">
+		<div class="col s12 offset-s1">
 			<br>
 			@if(session('success'))
 				<div class="card-panel teal lighten-2">
@@ -27,18 +27,20 @@
 				      </form>
 				    </div>
   				</nav>
+					<br>
 			<div class="card-panel">
 
 				<table class="responsive-table">
-					<thead>
+					<thead class="teal lighten-2">
 						<tr>
-							<td class="red-text text-lighten-2">Nama</td>
-							<td class="red-text text-lighten-2">Kd Booking</td>
-							<td class="red-text text-lighten-2">Tgl Liburan</td>
-							<td class="red-text text-lighten-2">Status</td>
-							<td class="red-text text-lighten-2">Kuota</td>
-							<td class="red-text text-lighten-2">Harga</td>
-							<td class="red-text text-lighten-2">Action</td>
+							<td >Nama</td>
+							<td >Kd Booking</td>
+							<td >Tgl Liburan</td>
+							<td >Status</td>
+							<td >Kuota</td>
+							<td >Harga</td>
+							<td >Driver</td>
+							<td >Action</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -51,6 +53,12 @@
 							@foreach( $booking->tours as $tour)
 							<td>{{ $tour->kuota }}</td>
 							<td>{{{ number_format((float) $tour->harga,0) }}}</td>
+							@endforeach
+							@foreach ($booking->drivers as $driver)
+								@if (!empty($driver))
+									<td>{{ $driver->nama_driver }}</td>
+								@else
+								@endif
 							@endforeach
 							<td><a  href="/admin/{{ $booking->id }}/edit_daftar_paket" class="waves-effect waves-light btn"><i class="material-icons">border_color</i> Edit</a></td>
 						</tr>

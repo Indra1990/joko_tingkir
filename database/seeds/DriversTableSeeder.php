@@ -17,6 +17,8 @@ class DriversTableSeeder extends Seeder
             DB::table('drivers')->insert([
                 'nama_driver' => $faker->name,
                 'alamat' => $faker->address,
+                'no_telp' => $faker->phoneNumber,
+
             ]);
         }
 

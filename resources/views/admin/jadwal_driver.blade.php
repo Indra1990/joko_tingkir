@@ -4,7 +4,7 @@
 	<br>
 <div class="container">
 	<div class="row">
-		<div class="col s8 offset-s2">
+		<div class="col s12 offset-s1">
 			<div class="row">
 		    <div class="col s12">
 		      <ul class="tabs">
@@ -20,6 +20,7 @@
           <tr>
               <th>Nama Driver</th>
               <th>Alamat</th>
+							<th>No Telp</th>
           </tr>
         </thead>
         <tbody>
@@ -27,6 +28,7 @@
 	          <tr>
 	            <td>{{ $driver->nama_driver}}</td>
 	            <td>{{ $driver->alamat}}</td>
+							<td>{{ $driver->no_telp}}</td>
 	          </tr>
 					@endforeach
 
@@ -34,8 +36,39 @@
       </table>
 
 				</div>
-		    <div id="test2" class="col s12">Test 2</div>
+		    <div id="test2" class="col s12">
+					<br>
+					<table>
+						<thead class="teal lighten-2">
+							<tr>
+								<td>Nama</td>
+								<td>Tgl Liburan</td>
+								<td>Kuota</td>
+								<td>Driver</td>
+								<td>Alamat</td>
+								<td>No_telp</td>
 
+							</tr>
+						</thead>
+						<tbody>
+							@foreach ($bookings as $booking)
+							<tr>
+								<td>{{$booking->user->name}}</td>
+								<td>{{ date('Y-m-d', strtotime($booking->tanggal_liburan)) }}</td>
+								@foreach ($booking->tours as $tour)
+									<td>{{$tour->kuota}}</td>
+								@endforeach
+								@foreach ($booking->drivers as $driver)
+									<td>{{$driver->nama_driver }}</td>
+									<td>{{$driver->alamat }}</td>
+									<td>{{$driver->no_telp }}</td>
+
+								@endforeach
+							</tr>
+						@endforeach
+						</tbody>
+					</table>
+				</div>
 		  </div>
 
 		</div>

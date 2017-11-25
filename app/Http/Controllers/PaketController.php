@@ -37,7 +37,6 @@ class PaketController extends Controller
         if(empty($request->tours))
             return redirect('/pesan_paket')->withInput($request->input())->with('tours_error','Paket harus di isi');
 
-  //    $number = '0123456789';
       $number = mt_rand(10000,99999);
 
     	$booking = Booking::create([

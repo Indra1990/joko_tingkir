@@ -10,4 +10,8 @@ class Driver extends Model
           'nama_driver','alamat'
       ];
 
+  public function bookings()
+  {
+    return $this->belongsToMany('App\Booking');
+  }
 }

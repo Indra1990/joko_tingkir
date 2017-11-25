@@ -20,7 +20,6 @@ class CreateBookingsTable extends Migration
             $table->string('status',10)->default('unpaid');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
 

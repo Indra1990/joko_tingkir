@@ -21,6 +21,11 @@ class Booking extends Model
     	return $this->belongsToMany('App\Tour');
 
     }
+    public function drivers()
+    {
+    	return $this->belongsToMany('App\Driver');
+
+    }
 
     public function payment()
     {

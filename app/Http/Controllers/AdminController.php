@@ -25,7 +25,8 @@ class AdminController extends Controller
 	public function driver()
 	{
 		$drivers = Driver::all();
-		return view('admin.jadwal_driver' ,compact('drivers'));
+		$bookings = Booking::with('drivers')->latest()->get();
+		return view('admin.jadwal_driver' ,compact('drivers','bookings'));
 	}
 
 	public function dashboard()
@@ -73,7 +74,9 @@ class AdminController extends Controller
 	{
 		$bookings = Booking::find($id);
 		$tours = Tour::all();
-		return view('admin/edit_daftar_paket',compact('bookings','tours'));
+		$drivers = Driver::all();
+
+		return view('admin/edit_daftar_paket',compact('bookings','tours','drivers'));
 	}
 
 	public function updateDaftarPaket(Request $request, $id)
@@ -82,15 +85,17 @@ class AdminController extends Controller
 
             'tanggal_liburan' => 'required',
         ]);
+				$request->drivers = array_unique(array_diff($request->drivers, [0]));
+				if(empty($request->drivers))
+						return  back()->withInput($request->input())->with('tours_error','driver harus di isi');
 
         $bookings = Booking::find($id);
         $bookings->update([
         	'status' => $request->status,
         	'tanggal_liburan' => $request->tanggal_liburan,
         ]);
-
         $bookings->tours()->sync($request->tours);
-
+				$bookings->drivers()->attach($request->input('drivers'));
         return redirect('/admin/daftar_paket')->with('success','Berhasil Update Data Paket Liburan');
 	}
 

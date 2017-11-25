@@ -44,19 +44,35 @@
 					</div>
 					@endforeach
 
-				<div class="input-field col s8">
-					<div class="card-panel">
-						<p class="blue-text text-darken-2">Add Driver</p>
-						<div class="divider"></div>
-						 <span class="blue-text text-darken-2">
-							 <p>
-							 <input type="checkbox" id="test5" />
-				       <label for="test5">Red</label>
-							 </p>
-						 </span>
-					 </div>
+					<div class="row">
+						<div class="col s8">
+							<ul class="collapsible " data-collapsible="accordion">
+						    <li>
+						      <div class="collapsible-header teal lighten-2"><i class="material-icons">add_box</i>Add Driver</div>
+						      <div class="collapsible-body"><span>
+										<div class="input-field col s8">
 
-			 </div>
+											<select class="" name="drivers[]">
+												<option value="0">-- Pilih Driver --</option>
+												@foreach ($drivers as $driver)
+												<option value="{{ $driver->id }}">{{ $driver->nama_driver }}</option>
+												@endforeach
+
+											</select>
+										</div>
+									</span></div>
+						    </li>
+					  </ul>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col s4 ">
+							<p>@if(session('tours_error'))
+									<span class="red-text text-darken-2"> {{ session('tours_error') }}</span>
+							@endif</p>
+						</div>
+					</div>
 
 					<div class="input-field col s8">
 					<button class="waves-effect waves-light btn">submit</button>

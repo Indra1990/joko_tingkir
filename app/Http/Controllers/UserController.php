@@ -20,7 +20,7 @@ class UserController extends Controller
     {
         $users = User::all();
         $userCount = User::count();
-        return view('admin/index',compact('users','userCount')); 
+        return view('admin/index',compact('users','userCount'));
     }
 
     /**
@@ -36,11 +36,10 @@ class UserController extends Controller
             $query->orderBy('id','DESC');
         }))->findOrFail($id);
 
-        
         return view('user/history', compact('users'));
     }
-    
-     
+
+
 
     public function create()
     {

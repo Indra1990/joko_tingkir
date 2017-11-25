@@ -17,6 +17,7 @@ class CreateDriversTable extends Migration
             $table->increments('id');
             $table->string('nama_driver',50);
             $table->text('alamat');
+            $table->string('no_telp',30);
             $table->timestamps();
         });
     }
