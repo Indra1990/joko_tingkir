@@ -13,7 +13,6 @@
 					   {{ csrf_field() }}
 
 					 <div class="row">
-
 				        <div class="input-field col s8 {{ $errors->has('kuota') ? ' has-error' : '' }}">
 				          <input  id="first_name" type="text" name="kuota" class="validate" value="{{ $tour->kuota }}">
 				          <label for="first_name">Kuota</label>

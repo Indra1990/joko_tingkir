@@ -18,17 +18,6 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-	public function index()
-	{
-		return view('admin.index');
-	}
-	public function driver()
-	{
-		$drivers = Driver::all();
-		$bookings = Booking::with('drivers')->latest()->get();
-		return view('admin.jadwal_driver' ,compact('drivers','bookings'));
-	}
-
 	public function dashboard()
 	{
 		$user = User::count();
@@ -36,6 +25,42 @@ class AdminController extends Controller
 		$bookingUnpaid = Booking::where('status','=','Unpaid')->count();
 		$bookings = Booking::count();
 		return view('/admin/dashboard',compact('user','bookingPaid','bookingUnpaid','bookings'));
+	}
+
+	public function index()
+	{
+		return view('admin.index');
+	}
+
+	public function driver()
+	{
+		//$booking = Booking::where('id',$id)->first();
+		$drivers = Driver::all();
+		$bookings = Booking::with('drivers')->where('status','=','Paid')->latest()->get();
+
+		return view('admin.jadwal_driver' ,compact('drivers','bookings'));
+	}
+
+	public function driverCreate($id)
+	{
+		$booking = Booking::find($id);
+		$drivers = Driver::all();
+		return view('admin/add_driver',compact('drivers','booking'));
+	}
+
+	public function driverStore(Request $request, $id)
+	{
+		$request->drivers = array_unique(array_diff($request->drivers, [0]));
+
+		if(empty($request->drivers))
+				return  back()->withInput($request->input())->with('tours_error','driver harus di isi');
+				//$bookings = Booking::where('id', '$id')->first();
+				$bookings = Booking::find($id);
+
+			$bookings->drivers()->attach($request->input('drivers'));
+
+				//$bookings->drivers()->attach($request->drivers);
+				return  redirect('admin/jadwal_driver');
 	}
 
 	public function laporanDaftarPaket(Request $request)
@@ -74,9 +99,9 @@ class AdminController extends Controller
 	{
 		$bookings = Booking::find($id);
 		$tours = Tour::all();
-		$drivers = Driver::all();
+		//$drivers = Driver::all();
 
-		return view('admin/edit_daftar_paket',compact('bookings','tours','drivers'));
+		return view('admin/edit_daftar_paket',compact('bookings','tours'));
 	}
 
 	public function updateDaftarPaket(Request $request, $id)
@@ -85,17 +110,17 @@ class AdminController extends Controller
 
             'tanggal_liburan' => 'required',
         ]);
-				$request->drivers = array_unique(array_diff($request->drivers, [0]));
+				/*$request->drivers = array_unique(array_diff($request->drivers, [0]));
 				if(empty($request->drivers))
 						return  back()->withInput($request->input())->with('tours_error','driver harus di isi');
-
+				*/
         $bookings = Booking::find($id);
         $bookings->update([
         	'status' => $request->status,
         	'tanggal_liburan' => $request->tanggal_liburan,
         ]);
         $bookings->tours()->sync($request->tours);
-				$bookings->drivers()->attach($request->input('drivers'));
+				//$bookings->drivers()->attach($request->input('drivers'));
         return redirect('/admin/daftar_paket')->with('success','Berhasil Update Data Paket Liburan');
 	}
 

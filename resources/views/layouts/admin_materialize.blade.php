@@ -72,6 +72,13 @@
         $(".button-collapse").sideNav();
         $('.collapsible').collapsible();
 
+          {{-- show add driver --}}
+    		$(document).ready(function() {
+      		$('#addDriver').click(function() {
+      				$('.driver').toggle("slide");
+      		    });
+    		});
+
         {{-- $(document).ready(function () {
           $('li').hover(function (argument) {
             $(this).css('background-color','#ffcdd2 ');

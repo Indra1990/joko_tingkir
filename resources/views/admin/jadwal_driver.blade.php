@@ -31,7 +31,6 @@
 							<td>{{ $driver->no_telp}}</td>
 	          </tr>
 					@endforeach
-
         </tbody>
       </table>
 
@@ -41,6 +40,9 @@
 					<table>
 						<thead class="teal lighten-2">
 							<tr>
+								@if (Auth::user()->username == "admin paket wisata")
+									<td>Add Driver</td>
+								@endif
 								<td>Nama</td>
 								<td>Tgl Liburan</td>
 								<td>Kuota</td>
@@ -51,8 +53,13 @@
 							</tr>
 						</thead>
 						<tbody>
+
 							@foreach ($bookings as $booking)
 							<tr>
+								@if (Auth::user()->username == "admin paket wisata")
+									<td><a href="/admin/add_driver/{{$booking->id}}" ><i class="fa fa-user-plus" aria-hidden="true"></i></a> || <a href=""> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></i></a></td>
+								@endif
+
 								<td>{{$booking->user->name}}</td>
 								<td>{{ date('Y-m-d', strtotime($booking->tanggal_liburan)) }}</td>
 								@foreach ($booking->tours as $tour)
@@ -62,10 +69,11 @@
 									<td>{{$driver->nama_driver }}</td>
 									<td>{{$driver->alamat }}</td>
 									<td>{{$driver->no_telp }}</td>
-
 								@endforeach
 							</tr>
+
 						@endforeach
+
 						</tbody>
 					</table>
 				</div>

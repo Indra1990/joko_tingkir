@@ -39,6 +39,8 @@
 							<td class="red-text text-lighten-2">Status</td>
 							<td class="red-text text-lighten-2">Kuota</td>
 							<td class="red-text text-lighten-2">Harga</td>
+							<td class="red-text text-lighten-2">Drivers</td>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -52,7 +54,9 @@
 							<td>{{ $tour->kuota }}</td>
 							<td>{{{ number_format((float) $tour->harga,0) }}}</td>
 							@endforeach
-
+							@foreach( $booking->drivers as $driver)
+							<td>{{ $driver->nama_driver }}</td>
+							@endforeach
 						</tr>
 						@endforeach
 					</tbody>

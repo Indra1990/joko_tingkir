@@ -39,7 +39,6 @@
 							<td >Status</td>
 							<td >Kuota</td>
 							<td >Harga</td>
-							<td >Driver</td>
 							<td >Action</td>
 						</tr>
 					</thead>
@@ -54,12 +53,6 @@
 							<td>{{ $tour->kuota }}</td>
 							<td>{{{ number_format((float) $tour->harga,0) }}}</td>
 							@endforeach
-							@foreach ($booking->drivers as $driver)
-								@if (!empty($driver))
-									<td>{{ $driver->nama_driver }}</td>
-								@else
-								@endif
-							@endforeach
 							<td><a  href="/admin/{{ $booking->id }}/edit_daftar_paket" class="waves-effect waves-light btn"><i class="material-icons">border_color</i> Edit</a></td>
 						</tr>
 						@endforeach
@@ -72,11 +65,9 @@
 			<a class="waves-effect waves-light btn btn1" href="{{ url('admin/daftar_paket') }}">Kembali</a>
 			</div>
 			@else
-
 			<ul class="pagination">
 			<li class="waves-effect"><?php  echo $bookings->appends(['booking'=>'tanggal_liburan'])->render(); ?></li>
 			</ul>
-
 			@endif
 
 			</div>
