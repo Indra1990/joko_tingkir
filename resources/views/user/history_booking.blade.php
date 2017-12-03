@@ -5,14 +5,21 @@
 <div class="container">
 	<div class="row">
 		<div class="col s12">
+
 			<div class="card-panel">
 				<h4 class="center-align red-text text-lighten-2">History Pemesanan Paket Wisata</h4>
 			<div class="divider"></div>
 			</div>
 		</div>
+		@if(session('success'))
+		<div class="card-panel teal lighten-2">
+			<span>{{ session('success') }}</span>
+		</div>
+		@endif
 		@foreach ($users->bookings as $booking)
 		<div class="col s4">
 				<div class="card-panel">
+
 					<h6><span>Kode Booking</span> : {{$booking->kode_booking}}</h6>
 					<h6><span>Status</span> : {{$booking->status}}</h6>
 					<h6><span>Tgl Liburan</span> : {{ date('Y-m-d', strtotime($booking->tanggal_liburan)) }}</h6>

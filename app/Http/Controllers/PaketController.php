@@ -48,7 +48,7 @@ class PaketController extends Controller
 
     	$booking->tours()->attach($request->tours);
 
-      //  Mail::to($request->user())->send(new SendEmailBooking($booking));
+       Mail::to($request->user())->send(new SendEmailBooking($booking));
     	return redirect('/paket_harga')->with('success', 'Berhasil submit pesan paket wisata');
 
     }

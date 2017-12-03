@@ -25,6 +25,7 @@
 				<table class="responsive-table">
 					<thead>
 						<tr>
+							<th class="red-text text-lighten-2">Kd Booking</th>
 							<th class="red-text text-lighten-2">Nama Bank</th>
 							<th class="red-text text-lighten-2">Atas Nama</th>
 							<th class="red-text text-lighten-2">Tgl Transfer</th>
@@ -37,13 +38,13 @@
 					<tbody>
 						@foreach ($payments as $payment)
 						<tr>
+							<td>{{ $payment->booking->kode_booking }}</td>
 							<td>{{ $payment->nama_bank }}</td>
 							<td>{{ $payment->atas_nama }}</td>
 							<td>{{   date('Y-m-d', strtotime($payment->tgl_transfer)) }}</td>
 							<td><img src="/transfers/images/{{ $payment->img }}" height="50px;" class="materialboxed"></td>
 							<td>{{ $payment->subject }}</td>
 							<td>{{   date('Y-m-d', strtotime($payment->booking->tanggal_liburan)) }}</td>
-
 							<td>{{ $payment->user->name }}</td>
 						</tr>
 						@endforeach

@@ -56,7 +56,7 @@ class PaymentController extends Controller
         }
 
 
-        return redirect('/user/history/'.$booking->user->id)->with('success','Berhasil Konfirmasi Pembayaran');
+        return redirect('/user/history_booking/'.$booking->user->id)->with('success','Berhasil Konfirmasi Pembayaran');
     }
 
 
