@@ -39,7 +39,14 @@ class UserController extends Controller
         return view('user/history', compact('users'));
     }
 
+    public function historyBooking($id)
+    {
+      $users  = User::with(array('bookings' =>function($query){
+          $query->orderBy('id','DESC');
+      }))->findOrFail($id);
 
+      return view('user/history_booking', compact('users'));
+    }
 
     public function create()
     {
