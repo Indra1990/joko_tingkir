@@ -24,7 +24,7 @@
     <li><a href="{{url('admin/index')}}"><i class="fa fa-user" aria-hidden="true"></i>
  Daftar User</a></li>
     <li><a href="{{ url('admin/daftar_paket') }}"><i class="fa fa-info-circle" aria-hidden="true"></i>
- Daftar Paket</a></li>
+ Daftar Pesanan Paket</a></li>
     <li><a href="{{ url('admin/daftar_harga_paket') }}"> <i class="fa fa-money " aria-hidden="true"></i> Harga Paket</a></li>
     <li><a href="{{url('admin/jadwal_driver')}}"><i class="fa fa-id-card" aria-hidden="true"></i> Daftar Driver</a></li>
 

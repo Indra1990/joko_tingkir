@@ -33,6 +33,8 @@ Route::group(['middleware' => 'admin'], function(){
 	Route::get('/admin/jadwal_driver/', 'AdminController@driver');
 	Route::get('/admin/add_driver/{id}', 'AdminController@driverCreate');
 	Route::put('/admin/add_driver/{id}', 'AdminController@driverStore');
+	Route::get('/admin/edit_driver/{id}', 'AdminController@driverEdit');
+	Route::put('/admin/edit_driver/{id}', 'AdminController@driverUpdate');
 
 	//Route::get('/admin/dashboard', 'AdminController@chart');
 

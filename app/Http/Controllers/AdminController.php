@@ -54,13 +54,27 @@ class AdminController extends Controller
 
 		if(empty($request->drivers))
 				return  back()->withInput($request->input())->with('tours_error','driver harus di isi');
-				//$bookings = Booking::where('id', '$id')->first();
 				$bookings = Booking::find($id);
+				$bookings->drivers()->attach($request->input('drivers'));
 
-			$bookings->drivers()->attach($request->input('drivers'));
-
-				//$bookings->drivers()->attach($request->drivers);
 				return  redirect('admin/jadwal_driver');
+	}
+
+	public function driverEdit($bookingId)
+	{
+		$bookings = Booking::find($bookingId);
+		$drivers = Driver::all();
+
+		return view('admin.edit_driver', compact('bookings','drivers'));
+	}
+
+	public function driverUpdate(Request $request, $bookingId)
+	{
+
+		$bookings = Booking::find($bookingId);
+		$bookings->drivers()->sync($request->drivers);
+		return redirect('admin/jadwal_driver')->with('success','Berhasil Update driver');
+
 	}
 
 	public function laporanDaftarPaket(Request $request)

@@ -37,11 +37,16 @@
 				</div>
 		    <div id="test2" class="col s12">
 					<br>
+					@if(session('success'))
+						<div class="card-panel teal lighten-2">
+							<span>{{ session('success') }}</span>
+						</div>
+					@endif
 					<table>
 						<thead class="teal lighten-2">
 							<tr>
 								@if (Auth::user()->username == "admin paket wisata")
-									<td>Add Driver</td>
+									<td>Action</td>
 								@endif
 								<td>Nama</td>
 								<td>Tgl Liburan</td>
@@ -57,8 +62,16 @@
 							@foreach ($bookings as $booking)
 							<tr>
 								@if (Auth::user()->username == "admin paket wisata")
-									<td><a href="/admin/add_driver/{{$booking->id}}" ><i class="fa fa-user-plus" aria-hidden="true"></i></a> || <a href=""> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></i></a></td>
-								@endif
+									<td>
+									@empty ($booking->drivers()->exists())
+											<a href="/admin/add_driver/{{$booking->id}}" ><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+									@endempty
+
+									@if (!empty($booking->drivers()->exists()))
+										<a href="/admin/edit_driver/{{$booking->id}}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+									@endif
+									</td>
+							@endif
 
 								<td>{{$booking->user->name}}</td>
 								<td>{{ date('Y-m-d', strtotime($booking->tanggal_liburan)) }}</td>
