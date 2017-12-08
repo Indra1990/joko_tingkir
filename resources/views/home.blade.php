@@ -22,8 +22,8 @@
 
     <div class="section white">
     <div class="row container">
-      <h2 class="header red-text text-lighten-3">Parallax</h2>
-      <p class="grey-text text-darken-3 lighten-3">Parallax is an effect where the background content or image in this case, is moved at a different speed than the foreground content while scrolling.</p>
+      <h2 class="header red-text text-lighten-3">Wisata Pantai Gunung Kidul </h2>
+      <p class="grey-text text-darken-3 lighten-3">Wisata Pantai Gunung Kidul – Jika anda ingin bernostalgia menikmati nuansa Pantai Kuta jaman dulu, Pantai Sepanjang dapat menjadi pilihan yang tepat untuk anda. Sepanjang memiliki garis pantai yang panjang dengan hamparan pasir putih yang kealamiannya masih terjaga. Selain itu, ombak di Pantai Sepanjang ini tidak terlalu besar sehingga menambah keindahan panoramanya. Ada banyak kegiatan yang dapat anda lakukan di pantai ini, mulai dari berjemur di bawah terik matahari, bermain papan selancar, atau hanya menyusuri bibir pantai sambil menikmati keindahannya. Semuanya dapat anda nikmati di Pantai yang jaraknya beberapa kilometer dari Pantai Sundak ini. Pantai Sepanjang adalah salah satu pantai yang belum lama dibuka.</p>
     </div>
   </div>
 

@@ -1,6 +1,12 @@
 @extends('layouts.app_materialize')
 
 @section('content_materialize')
+	<style media="screen">
+	.bar {
+	height: 18px;
+	background: green;
+}
+	</style>
 <div class="container">
 	<div class="row">
 		<div class="col s8 offset-s2">
@@ -9,7 +15,7 @@
 					<h4 class="center-align red-text  text-red lighten-2">Konfirmasi Pembayaran</h4>
 				</div>
 				<div class="divider"></div>
-				<form method="POST" action="/konfirmasi/{{ $booking->id }}" enctype="multipart/form-data">
+				<form method="POST" action="/konfirmasi/{{ $booking->id }}" enctype="multipart/form-data" >
 					{{ csrf_field() }}
 					<input type="hidden" name="_method" value="post">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -55,14 +61,20 @@
 			           		@endif
 						</div>
 
-						<div class="file-field input-field col s8 {{ $errors->has('img') ? ' has-error' : '' }}">
+			<div class="file-field input-field col s8 {{ $errors->has('img') ? ' has-error' : '' }}">
+
 							<div class="btn">
 						        <span>File</span>
-						        <input type="file" name="img">
-						      </div>
-						      <div class="file-path-wrapper">
-						        <input class="file-path validate" type="text" placeholder="Bukti Pembayaran">
-						      </div>
+
+						        <input type="file" name="img" >
+						 </div>
+
+						 <div class="file-path-wrapper">
+
+						        <input class="file-path validate " type="text" placeholder="Bukti Pembayaran">
+
+						 </div>
+
 						      @if ($errors->has('img'))
 			                <span class="red-text  text-darken-4">
 			                     <strong>{{ $errors->first('img') }}</strong>
@@ -70,16 +82,16 @@
 			           		@endif
 						</div>
 
-
-
 						<div class="input-field col s8">
 						<button class="waves-effect waves-light btn">submit</button>
 						</div>
 
 					</div>
 				</form>
+
 			</div>
 		</div>
 	</div>
 </div>
+
 @endsection

@@ -100,8 +100,26 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'tanggal_liburan' => [
+            'required' => 'kolom tanggal liburan harus di isi',
+        ],
+        'nama_bank' => [
+            'required' => 'kolom nama bank harus di isi',
+        ],
+        'atas_nama' => [
+            'required' => 'kolom atas nama harus di isi',
+        ],
+        'tgl_transfer' => [
+            'required' => 'kolom tanggal transfer harus di isi',
+        ],
+        'subject' => [
+            'required' => 'kolom keterangan harus di isi',
+        ],
+        'img' => [
+            'required' => 'kolom upload bukti Pembayaran harus di isi',
+            'image' => 'untuk upload bukti pembayaran gambar harus format jpg atau png',
+            'max' => 'maksimal ukuran gambar 300 kilo byte',
+
         ],
     ],
 

@@ -39,7 +39,7 @@
 							<td >Status</td>
 							<td >Kuota</td>
 							<td >Harga</td>
-							<td >Action</td>
+							<td >Aksi</td>
 						</tr>
 					</thead>
 					<tbody>

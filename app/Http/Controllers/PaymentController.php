@@ -36,24 +36,23 @@ class PaymentController extends Controller
         }
 
         else{
-        //$imageName = time().'.'.$request->img->getClientOriginalExtension();
-        //$img    =$request->img->move(public_path('/transfers/images'.$imageName));
+      
         if($request->hasFile('img')){
             $img = $request->file('img');
             $filename = time() . '.' . $img->getClientOriginalExtension();
             Image::make($img)->resize(300, 300)->save( public_path('/transfers/images/' . $filename ) );
             }
 
-    	$payment = Payment::create([
-    		'nama_bank' =>$request->nama_bank,
-        'atas_nama' =>$request->atas_nama,
-        'tgl_transfer' => $request->tgl_transfer,
-    		'subject' => $request->subject,
-        'img' => $filename,
-    		'booking_id'=> $id,
-    		'user_id' => Auth::user()->id,
-    	   ]);
-        }
+          	$payment = Payment::create([
+          		'nama_bank' =>$request->nama_bank,
+              'atas_nama' =>$request->atas_nama,
+              'tgl_transfer' => $request->tgl_transfer,
+          		'subject' => $request->subject,
+              'img' => $filename,
+          		'booking_id'=> $id,
+          		'user_id' => Auth::user()->id,
+          	   ]);
+            }
 
 
         return redirect('/user/history_booking/'.$booking->user->id)->with('success','Berhasil Konfirmasi Pembayaran');

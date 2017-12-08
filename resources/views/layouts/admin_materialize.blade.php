@@ -20,7 +20,7 @@
 
         @if (Auth::user()->username == "admin paket wisata" )
 
-      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+      <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> Home</a></li>
     <li><a href="{{url('admin/index')}}"><i class="fa fa-user" aria-hidden="true"></i>
  Daftar User</a></li>
     <li><a href="{{ url('admin/daftar_paket') }}"><i class="fa fa-info-circle" aria-hidden="true"></i>

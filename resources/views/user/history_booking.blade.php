@@ -7,7 +7,7 @@
 		<div class="col s12">
 
 			<div class="card-panel">
-				<h4 class="center-align red-text text-lighten-2">History Pemesanan Paket Wisata</h4>
+				<h4 class="center-align red-text text-lighten-2">Riwayat Pemesanan Paket Wisata</h4>
 			<div class="divider"></div>
 			</div>
 		</div>

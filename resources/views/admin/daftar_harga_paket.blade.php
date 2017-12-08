@@ -18,7 +18,7 @@
 						<tr>
 							<th class="center-align ">Kuota</th>
 							<th class="center-align">Harga</th>
-							<th class="center-align">Action</th>
+							<th class="center-align">Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
