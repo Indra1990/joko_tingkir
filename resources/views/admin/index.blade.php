@@ -13,6 +13,7 @@
 						<td class="red-text text-lighten-2">Nama</td>
 						<td class="red-text text-lighten-2">Email</td>
 						<td class="red-text text-lighten-2">Role</td>
+						<td class="red-text text-lighten-2">status</td>
 
 				</tr>
 				</thead>
@@ -23,6 +24,13 @@
 							<td>{{ $user->name }}</td>
 							<td>{{ $user->email }}</td>
 							<td>{{ $user->role }}</td>
+							@if($user->isOnline())
+    						<td><strong class="green-text text-darken-1">online</strong></td>
+							@endif
+							@if (!$user->isOnline())
+								<td><strong class="red-text text-lighten-1">offline</strong></td>
+							@endif
+
 						</tr>
 						@endforeach
 					</tbody>
@@ -33,5 +41,5 @@
 		</div>
 	</div>
 </div>
- 
+
 @endsection
