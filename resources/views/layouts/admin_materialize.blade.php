@@ -15,18 +15,21 @@
   <nav>
   <ul id="slide-out" class="side-nav red lighten-2 fixed ">
 
-    <li><a href=""><i class="tiny material-icons">account_circle</i> Hi {{ Auth::user()->name }}</a></li>
+       <li><a href=""><i class="tiny material-icons">account_circle</i> Hi {{ Auth::user()->name }}</a></li>
       <div class="divider"></div>
 
-        @if (Auth::user()->username == "admin paket wisata" )
+      @if (Auth::user()->username == "admin paket wisata" )
 
       <li><a href="{{ url('admin/dashboard') }}"><i class="fa fa-tachometer" aria-hidden="true"></i> Home</a></li>
-    <li><a href="{{url('admin/index')}}"><i class="fa fa-user" aria-hidden="true"></i>
- Daftar User</a></li>
-    <li><a href="{{ url('admin/daftar_paket') }}"><i class="fa fa-info-circle" aria-hidden="true"></i>
- Daftar Pesanan Paket</a></li>
-    <li><a href="{{ url('admin/daftar_harga_paket') }}"> <i class="fa fa-money " aria-hidden="true"></i> Harga Paket</a></li>
-    <li><a href="{{url('admin/jadwal_driver')}}"><i class="fa fa-id-card" aria-hidden="true"></i> Daftar Driver</a></li>
+      <li><a href="{{url('admin/index')}}"><i class="fa fa-user" aria-hidden="true"></i>
+      Daftar User</a></li>
+      
+      {{-- start notification booking --}}
+      <li><a href="{{ url('admin/daftar_paket') }}"><i class="fa fa-info-circle" aria-hidden="true"></i>Daftar Pesanan Paket<span class="black-text"> ({{ Auth::user()->notifications->where('seen', 0)->count() }})</span> </a></li>
+      {{-- end notification booking --}}
+
+      <li><a href="{{ url('admin/daftar_harga_paket') }}"> <i class="fa fa-money " aria-hidden="true"></i> Harga Paket</a></li>
+      <li><a href="{{url('admin/jadwal_driver')}}"><i class="fa fa-id-card" aria-hidden="true"></i> Daftar Driver</a></li>
 
       <div class="divider"></div>
    {{-- start dropdown laporan --}}

@@ -8,6 +8,7 @@ use App\Tour;
 use App\Driver;
 use DateTime;
 use App\Booking;
+use App\Notification;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Mail\SendEmailBooking;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 
 class PaketController extends Controller
 {
+
     public function index()
     {
         $tours = Tour::all();
@@ -37,18 +39,26 @@ class PaketController extends Controller
         if(empty($request->tours))
             return redirect('/pesan_paket')->withInput($request->input())->with('tours_error','Paket harus di isi');
 
-      $number = mt_rand(10000,99999);
+        $user = User::find(1);
+
+        $number = mt_rand(10000,99999);
 
     	$booking = Booking::create([
     		'tanggal_liburan' => $request['tanggal_liburan'],
     		'user_id' =>Auth::user()->id,
-        'kode_booking' => $number ,
+            'kode_booking' => $number ,
 
     	]);
 
     	$booking->tours()->attach($request->tours);
 
-       Mail::to($request->user())->send(new SendEmailBooking($booking));
+        Notification::create([
+            'user_id' => $user->id,
+            'booking_id' =>  $booking->id,
+            'subject' => 'ada booking dari '. Auth::user()->name,
+        ]);
+
+        Mail::to($request->user())->send(new SendEmailBooking($booking));
     	return redirect('/paket_harga')->with('success', 'Berhasil submit pesan paket wisata');
 
     }
