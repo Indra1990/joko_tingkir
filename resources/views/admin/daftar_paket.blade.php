@@ -15,7 +15,7 @@
 					<span>{{ session('success') }}</span>
 				</div>
 			@endif
-
+			
 				<nav>
 				    <div class="nav-wrapper">
 				      <form>
@@ -74,4 +74,7 @@
 		</div>
 	</div>
 </div>
+			@php
+				$notif_model::where('user_id', $user)->where('seen',0)->update(['seen' => 1]);
+			@endphp
 @endsection

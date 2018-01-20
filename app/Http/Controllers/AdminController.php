@@ -8,6 +8,7 @@ use App\User;
 use App\Tour;
 use App\Booking;
 use App\Payment;
+use App\Notification;
 use Carbon\Carbon;
 use Landish\Pagination;
 use App\Driver;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+	
 	public function dashboard()
 	{
 		$user = User::count();
@@ -54,10 +56,10 @@ class AdminController extends Controller
 
 		if(empty($request->drivers))
 				return  back()->withInput($request->input())->with('tours_error','driver harus di isi');
-				$bookings = Booking::find($id);
-				$bookings->drivers()->attach($request->input('drivers'));
+		$bookings = Booking::find($id);
+		$bookings->drivers()->attach($request->input('drivers'));
 
-				return  redirect('admin/jadwal_driver');
+		return redirect('admin/jadwal_driver');
 	}
 
 	public function driverEdit($bookingId)
@@ -103,10 +105,13 @@ class AdminController extends Controller
 		else{
 
 		$bookings = Booking::with('tours')->where('status','=','unpaid')->latest()->paginate(5);
-
+	
 		}
+		//notification seen
+		$user = Auth::user()->id;
+		$notif_model = new Notification;
 
-		return view('admin.daftar_paket',compact('bookings','search'));
+		return view('admin.daftar_paket',compact('bookings','search', 'notif_model','user'));
 	}
 
 	public function editDaftarPaket($id)

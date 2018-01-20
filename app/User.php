@@ -42,6 +42,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Booking');
     }
 
+    public function notifications()
+    {
+        return $this->hasMany('App\Notification');
+    }
+
     public function payment()
     {
         return $this->hasOne('App\Payment');
