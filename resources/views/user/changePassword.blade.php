@@ -43,7 +43,7 @@
 
               <div class="input-field col s8">
                 <i class="material-icons prefix">lock</i>
-                <input id="icon_prefix" type="password" name="new-password_confirmation" class="validate" value="{{ old('new-password_confirmation') }}" required>
+                <input id="icon_prefix" type="password" name="new-password_confirmation" class="validate"  value="{{ old('new-password_confirmation') }}" required>
                 <label for="icon_prefix">Confirm New Password</label>
 
               </div>
