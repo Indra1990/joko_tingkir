@@ -37,6 +37,7 @@
 
       <li><a href="{{ url('user/history_booking/'.Auth::user()->id ) }}"><i class="fa fa-history" aria-hidden="true"></i>riwayat</a></li>
     {{--  <li><a href="/user/history/{{ Auth::user()->id }}"><i class="fa fa-history" aria-hidden="true"></i>History</a></li>--}}
+    <li><a href="{{ url('user/changePassword/')}}"><i class="fa fa-unlock-alt" aria-hidden="true"></i>Reset Password</a></li>
 
       <li><a href="{{ url('user/profile/'.Auth::user()->id)}}"><i class="small material-icons">account_circle</i> Profile
       </a></li>

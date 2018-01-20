@@ -12,6 +12,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/konfirmasi/{id}', 'PaymentController@confirm');
 	Route::post('/konfirmasi/{id}/', 'PaymentController@store');
 	Route::get('/user/history_booking/{id}', 'UserController@historyBooking');
+	Route::get('/user/changePassword/', 'UserController@changePasswordForm');
+	Route::post('/user/changePassword','UserController@changePassword');
 
 });
 
