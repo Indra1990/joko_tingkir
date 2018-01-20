@@ -64,11 +64,12 @@
 								@if (Auth::user()->username == "admin paket wisata")
 									<td>
 									@empty ($booking->drivers()->exists())
-											<a href="/admin/add_driver/{{$booking->id}}" ><i class="fa fa-user-plus" aria-hidden="true"></i></a>
+											<a href="{{url('admin/add_driver/'.$booking->id)}}" ><i class="fa fa-user-plus" aria-hidden="true"></i></a>
 									@endempty
 
 									@if (!empty($booking->drivers()->exists()))
-										<a href="/admin/edit_driver/{{$booking->id}}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+										<a href="{{url('admin/edit_driver/'.$booking->id)}}"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 									@endif
 									</td>
 							@endif

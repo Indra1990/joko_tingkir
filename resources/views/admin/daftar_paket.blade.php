@@ -15,7 +15,7 @@
 					<span>{{ session('success') }}</span>
 				</div>
 			@endif
-			
+
 				<nav>
 				    <div class="nav-wrapper">
 				      <form>
@@ -53,7 +53,7 @@
 							<td>{{ $tour->kuota }}</td>
 							<td>{{{ number_format((float) $tour->harga,0) }}}</td>
 							@endforeach
-							<td><a  href="/admin/{{ $booking->id }}/edit_daftar_paket" class="waves-effect waves-light btn"><i class="material-icons">border_color</i> Edit</a></td>
+							<td><a  href="{{url('admin/'.$booking->id.'/edit_daftar_paket')}}" class="waves-effect waves-light btn"><i class="material-icons">border_color</i> Edit</a></td>
 						</tr>
 						@endforeach
 					</tbody>

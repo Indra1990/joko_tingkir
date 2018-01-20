@@ -11,7 +11,8 @@
 				</div>
 			@endif
 			<div class="right-align">
-			<a class="waves-effect waves-light btn" href="/admin/create_paket_harga"><i class="fa fa-plus" aria-hidden="true"></i> Buat Harga Baru</a></div>
+
+			<a class="waves-effect waves-light btn" href="{{url('admin/create_paket_harga')}}"><i class="fa fa-plus" aria-hidden="true"></i> Buat Harga Baru</a></div>
 			<div class="card-panel">
 				<table class="striped">
 					<thead>
@@ -26,7 +27,8 @@
 						<tr>
 							<td class="center-align">{{ $tour->kuota }}</td>
 							<td class="center-align">{{{ number_format((float) $tour->harga,0) }}}</td>
-							<td class="center-align"><a class="waves-effect waves-light btn" href="/admin/edit_paket_harga/{{ $tour->id }}"><i class="material-icons">create</i> Edit</a></td>
+							<td class="center-align"><a class="waves-effect waves-light btn" href="{{url('admin/edit_paket_harga/'.$tour->id )}}
+"><i class="material-icons">create</i> Edit</a></td>
 						</tr>
 						@endforeach
 					</tbody>

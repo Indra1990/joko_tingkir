@@ -34,9 +34,11 @@
 	<ul id="dropdown1" class="dropdown-content">
 	    <li class="divider"></li>
       @if (Auth::check())
-      <li><a href="/user/history_booking/{{ Auth::user()->id }}"><i class="fa fa-history" aria-hidden="true"></i>riwayat</a></li>
+
+      <li><a href="{{ url('user/history_booking/'.Auth::user()->id ) }}"><i class="fa fa-history" aria-hidden="true"></i>riwayat</a></li>
     {{--  <li><a href="/user/history/{{ Auth::user()->id }}"><i class="fa fa-history" aria-hidden="true"></i>History</a></li>--}}
-	    <li><a href="/user/profile/{{ Auth::user()->id }}"><i class="small material-icons">account_circle</i> Profile
+
+      <li><a href="{{ url('user/profile/'.Auth::user()->id)}}"><i class="small material-icons">account_circle</i> Profile
       </a></li>
 
       @endif
@@ -133,7 +135,9 @@
     clear: 'Clear',
     close: 'Ok',
     closeOnSelect: false, // Close upon selecting a date,
-    format: 'yyyy-m-d'
+    format: 'yyyy-m-d',
+    min: true
+
     //date :'now',
   });
     </script>

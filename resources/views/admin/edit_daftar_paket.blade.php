@@ -10,7 +10,8 @@
 				</div>
 				<div class="divider"></div>
 				<br>
-				<form method="POST" action="/admin/{{ $bookings->id }}/edit_daftar_paket">
+
+				<form method="POST" action="{{ url('admin/'.$bookings->id.'/edit_daftar_paket')}}">
 					{{ csrf_field() }}
       				<input type="hidden" name="_method" value="PUT">
 					<div class="row">
@@ -44,7 +45,7 @@
 					</div>
 					@endforeach
 
-						
+
 
 					<div class="input-field col s8">
 					<button class="waves-effect waves-light btn">submit</button>
